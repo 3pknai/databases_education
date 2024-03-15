@@ -1,0 +1,13 @@
+SELECT * FROM `administrators`;
+SELECT * FROM `basket`;
+SELECT * FROM `basket to product`;
+SELECT * FROM `buyer`;
+SELECT * FROM `delivery`;
+SELECT * FROM `moderators`;
+SELECT * FROM `order`;
+SELECT * FROM `product`;
+SELECT * FROM `review`;
+SELECT * FROM `seller`;
+SELECT * FROM `site`;
+SELECT * FROM `stock`;
+SELECT * FROM `technical support`;

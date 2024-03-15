@@ -1,0 +1,15 @@
+SELECT * FROM forum;
+SELECT * FROM user;
+SELECT * FROM payment;
+SELECT * FROM blog;
+SELECT * FROM `content bank`;
+SELECT * FROM course;
+SELECT * FROM notification;
+SELECT * FROM question;
+SELECT * FROM testing;
+SELECT * FROM `course element`;
+SELECT * FROM `testing to question`;
+SELECT * FROM `user to blog`;
+SELECT * FROM `user to course`;
+SELECT * FROM `user to notification`;
+SELECT * FROM `user to question`;

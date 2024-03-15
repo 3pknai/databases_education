@@ -1,0 +1,1 @@
+DROP DATABASE `online learning platform`;
