@@ -21,15 +21,15 @@ USE `Online learning platform` ;
 -- Table `Online learning platform`.`User`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Online learning platform`.`User` (
-  `Login` VARCHAR(26) NOT NULL,
-  `Name` VARCHAR(50) NOT NULL,
-  `Password` VARCHAR(45) NOT NULL,
-  `The_time_of_the_last_access_to_the_system` DATETIME NOT NULL,
-  `Mail` VARCHAR(45) NOT NULL,
-  `Date_of_birth` DATE NOT NULL,
-  `Telephone` VARCHAR(45) NULL,
-  `Country` VARCHAR(45) NOT NULL,
-  `Avatar` VARCHAR(45) NULL,
+  `Login` VARCHAR(26) NOT NULL, -- [4, 26]
+  `Name` VARCHAR(50) NOT NULL, -- [4, 50]
+  `Password` VARCHAR(45) NOT NULL, -- [4, 45]
+  `The_time_of_the_last_access_to_the_system` DATETIME NOT NULL, -- < CURRENT_TIME
+  `Mail` VARCHAR(50) NOT NULL, -- [4, 50]
+  `Date_of_birth` DATE NOT NULL, -- < CURRENT_DATE
+  `Telephone` VARCHAR(11) NULL, -- = 11
+  `Country` VARCHAR(30) NOT NULL, -- [3, 30]
+  `Avatar` VARCHAR(80) NULL,
   PRIMARY KEY (`Login`))
 ENGINE = InnoDB;
 
@@ -40,8 +40,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Online learning platform`.`Notification` (
   `id_notification` INT NOT NULL AUTO_INCREMENT,
   `Text` MEDIUMTEXT NOT NULL,
-  `Name` VARCHAR(45) NOT NULL,
-  `Date_of_dispatch` DATETIME NOT NULL,
+  `Name` VARCHAR(50) NOT NULL, -- [1, 50]
+  `Date_of_dispatch` DATETIME NOT NULL, -- < CURRENT_TIME
   PRIMARY KEY (`id_notification`))
 ENGINE = InnoDB;
 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `Online learning platform`.`Blog` (
   `id_blog` INT NOT NULL AUTO_INCREMENT,
   `Date_of_publication` DATETIME NOT NULL,
   `Content` MEDIUMTEXT NOT NULL,
-  `Title` VARCHAR(45) NOT NULL,
+  `Title` VARCHAR(50) NOT NULL, -- [1, 50]
   PRIMARY KEY (`id_blog`))
 ENGINE = InnoDB;
 
@@ -63,9 +63,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Online learning platform`.`Payment` (
   `id_payment` INT NOT NULL AUTO_INCREMENT,
-  `Method` VARCHAR(45) NOT NULL,
-  `Price` FLOAT NOT NULL,
-  `Commission` FLOAT NOT NULL,
+  `Method` VARCHAR(50) NOT NULL, -- [4, 50]
+  `Price` FLOAT NOT NULL, -- >= 0
+  `Commission` FLOAT NOT NULL, -- >= 0
   PRIMARY KEY (`id_payment`))
 ENGINE = InnoDB;
 
@@ -75,8 +75,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Online learning platform`.`Forum` (
   `id_forum` INT NOT NULL AUTO_INCREMENT,
-  `Number_of_messages` INT NOT NULL,
-  `The_subject_of_the_question` VARCHAR(45) NOT NULL,
+  `Number_of_messages` INT NOT NULL, -- > 0
+  `The_subject_of_the_question` VARCHAR(50) NOT NULL, -- [1, 50]
   PRIMARY KEY (`id_forum`))
 ENGINE = InnoDB;
 
@@ -96,11 +96,11 @@ ENGINE = InnoDB;
 -- Table `Online learning platform`.`Course`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Online learning platform`.`Course` (
-  `Short name` VARCHAR(45) NOT NULL,
-  `Name` VARCHAR(45) NOT NULL,
+  `Short name` VARCHAR(12) NOT NULL, -- [1, 12]
+  `Name` VARCHAR(50) NOT NULL, -- [1, 50]
   `Description` MEDIUMTEXT NULL,
-  `Duration` INT NULL,
-  `Rating` FLOAT NULL,
+  `Duration` INT NULL, -- > 0 
+  `Rating` FLOAT NULL, -- [0, 5]
   `The_beginning_of_the_course` DATETIME NULL,
   `Payment_id_payment` INT NOT NULL,
   `Forum_id_forum` INT NOT NULL,
@@ -132,11 +132,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Online learning platform`.`Course element` (
   `id_course_element` INT NOT NULL AUTO_INCREMENT,
-  `Number` INT NOT NULL,
-  `Name` VARCHAR(45) NOT NULL,
-  `Type` VARCHAR(45) NOT NULL,
+  `Number` INT NOT NULL, -- > 0
+  `Name` VARCHAR(50) NOT NULL, -- [1, 50]
+  `Type` VARCHAR(50) NOT NULL, -- [1, 50]
   `Visibility` TINYINT NOT NULL,
-  `Attached_file` VARCHAR(45) NULL,
+  `Attached_file` VARCHAR(80) NULL, -- [4, 80]
   `Content bank_id_content_bank` INT NOT NULL,
   PRIMARY KEY (`id_course_element`),
   INDEX `fk_Course element_Content bank1_idx` (`Content bank_id_content_bank` ASC) VISIBLE,
@@ -171,13 +171,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Online learning platform`.`Question` (
   `id_question` INT NOT NULL AUTO_INCREMENT,
-  `Name` VARCHAR(45) NOT NULL,
+  `Name` VARCHAR(30) NOT NULL, -- [1, 30]
   `Text` TEXT NOT NULL,
-  `Score_for_correct_execution` FLOAT NOT NULL,
-  `Creation_time` DATETIME NOT NULL,
-  `Type` VARCHAR(45) NOT NULL,
-  `The_maximum_size_of_the_file_to_be_added` INT NULL,
-  `The_maximum_number_of_files_to_add` TINYINT NULL,
+  `Score_for_correct_execution` FLOAT NOT NULL, -- > 0
+  `Creation_time` DATETIME NOT NULL,  -- < CURRENT_TIME
+  `Type` VARCHAR(45) NOT NULL, -- переделать
+  `The_maximum_size_of_the_file_to_be_added` INT NULL, -- > 0
+  `The_maximum_number_of_files_to_add` TINYINT NULL, -- > 0
   PRIMARY KEY (`id_question`))
 ENGINE = InnoDB;
 
