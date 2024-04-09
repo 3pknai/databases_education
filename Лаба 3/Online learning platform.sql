@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS `Online learning platform`.`Notification` (
   `Date_of_dispatch` DATETIME NOT NULL, -- < CURRENT_TIME
   PRIMARY KEY (`id_notification`))
 ENGINE = InnoDB;
+-- DEFAULT CHARSET = utf16
 
 
 -- -----------------------------------------------------
@@ -257,7 +258,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Online learning platform`.`User to Question` (
   `Question_id_question` INT NOT NULL,
   `User_Login` VARCHAR(26) NOT NULL,
-  `The_score_received` INT NOT NULL,
+  `The_score_received` FLOAT NOT NULL,
   PRIMARY KEY (`Question_id_question`, `User_Login`),
   INDEX `fk_Question_has_User_User1_idx` (`User_Login` ASC) VISIBLE,
   INDEX `fk_Question_has_User_Question1_idx` (`Question_id_question` ASC) VISIBLE,
