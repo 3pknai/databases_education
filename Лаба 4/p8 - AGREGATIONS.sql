@@ -20,7 +20,7 @@ FROM (SELECT `testing to question`.Testing_id_test AS test_id,
 	  GROUP BY user.Login, `testing to question`.Testing_id_test)
 	  AS t1
 JOIN course ON course.`Content bank_id_content_bank` = t1.bank_id
-WHERE course.`Short name` = "web101"
+WHERE course.`Short name` = "ai-1-i"
 GROUP BY t1.Login
 ORDER BY rating DESC
 LIMIT 3;

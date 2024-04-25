@@ -30,8 +30,7 @@ LIMIT 5;
 
 -- 5. Вывести количество пользователей,записанных хотя бы на один курс
 SELECT COUNT(DISTINCT(`user to course`.User_Login)) AS Count
-FROM user
-JOIN `user to course` ON `user to course`.User_Login = user.Login;
+FROM `user to course`;
 
 -- 6. Вывести пути до всех файлов на сервере, используемых в элементах курса
 SELECT DISTINCT(Attached_file) AS filename

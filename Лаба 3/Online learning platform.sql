@@ -27,9 +27,9 @@ CREATE TABLE IF NOT EXISTS `Online learning platform`.`User` (
   `The_time_of_the_last_access_to_the_system` DATETIME NOT NULL, -- < CURRENT_TIME
   `Mail` VARCHAR(50) NOT NULL, -- [4, 50]
   `Date_of_birth` DATE NOT NULL, -- < CURRENT_DATE
-  `Telephone` VARCHAR(11) NULL, -- = 11
-  `Country` VARCHAR(30) NOT NULL, -- [3, 30]
-  `Avatar` VARCHAR(80) NULL,
+  `Telephone` VARCHAR(15) NULL, -- = 11
+  `Country` VARCHAR(80) NOT NULL, -- [3, 80]
+  `Avatar` VARCHAR(140) NULL,
   PRIMARY KEY (`Login`))
 ENGINE = InnoDB;
 
@@ -97,7 +97,7 @@ ENGINE = InnoDB;
 -- Table `Online learning platform`.`Course`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Online learning platform`.`Course` (
-  `Short name` VARCHAR(12) NOT NULL, -- [1, 12]
+  `Short name` VARCHAR(20) NOT NULL, -- [1, 20]
   `Name` VARCHAR(50) NOT NULL, -- [1, 50]
   `Description` MEDIUMTEXT NULL,
   `Duration` INT NULL, -- > 0 
