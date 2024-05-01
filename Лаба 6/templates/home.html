@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Домашняя страница пользователя</title>
+  <link rel="stylesheet" href={{ url_for('static', filename='home.css') }}>
+</head>
+<body>
+  <header>
+    <h1>Добро пожаловать, {{ username }}!</h1>
+
+    <form action="/home" method="POST">
+      <input type="submit" value="Выйти">
+    </form>
+
+  </header>
+  <main>
+    <div class="profile-info">
+      <h3>Информация о профиле</h3>
+      <p>Имя: {{ name }}</p>
+      <p>Адрес электронной почты: {{ email }}</p>
+      <p>Дата рождения: {{ date_of_birth }}</p>
+    </div>
+    <div class="activity-feed">
+      <h3>Лента активности</h3>
+      <ul>
+        <!-- Здесь будет вставлена лента активности -->
+      </ul>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; Distriction</p>
+  </footer>
+</body>
+</html>

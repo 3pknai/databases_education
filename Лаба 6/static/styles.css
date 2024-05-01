@@ -1,0 +1,183 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Main styles */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+#table-select {
+    padding: 5px;
+    font-size: 16px;
+}
+
+#table-CRUD {
+    padding: 5px;
+    font-size: 16px;
+}
+
+#table-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Tables styles */
+div table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+div th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+div th {
+    background-color: #4CAF50;
+    color: #fff;
+    font-weight: bold;
+}
+
+div tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+div tr:hover {
+    background-color: #e6e6e6;
+}
+
+div table {
+    border-radius: 10px;
+    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+div th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+div th:first-child {
+    border-top-left-radius: 10px;
+}
+
+div th:last-child {
+    border-top-right-radius: 10px;
+}
+
+div tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+div tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+/* Form styles */
+div.form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.input {
+    flex-basis: 25%;
+    padding: 15px;
+}
+
+.input input {
+    font-size: 16px;
+}
+
+div.form input.send {
+    font-size: 16px;
+    background-color: #4CAF50; /* Цвет фона */
+    border: none; /* Убрать границу */
+    color: white; /* Цвет текста */
+    padding: 15px 32px; /* Внутренние отступы */
+    text-align: center; /* Выравнивание текста по центру */
+    text-decoration: none; /* Убрать подчеркивание */
+    display: inline-block; /* Сделать элемент блочным */
+    font-size: 16px; /* Размер шрифта */
+    margin: 4px 2px; /* Внешние отступы */
+    cursor: pointer; /* Изменить курсор при наведении */
+    border-radius: 8px; /* Скругленные углы */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Тень */
+    font-weight: bold;
+}
+
+div.form input.send:hover {
+    background-color: #3e8e41; /* Изменить цвет фона при наведении */
+}
+
+.flash {
+    padding: 10px;
+    color: #000;
+    margin: 5px;
+}
+
+.flash.success {
+    border: 1px solid #21D856;
+    background: #AEFFC5;
+}
+
+.flash.error {
+    border: 1px solid #FF4343;
+    background: #FF9C9C;
+}

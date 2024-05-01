@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Авторизация пользователя</title>
+  <link rel="stylesheet" href={{ url_for('static', filename='auth.css') }}>
+</head>
+<body>
+  <h1>Авторизация</h1>
+  <form action="/auth" method="POST">
+    <label for="username">Имя пользователя:</label>
+    <input type="text" name="username" id="username">
+    <br>
+    <label for="password">Пароль:</label>
+    <input type="password" name="password" id="password">
+    <br>
+    <input type="submit" value="Войти">
+  </form>
+</body>
+</html>
